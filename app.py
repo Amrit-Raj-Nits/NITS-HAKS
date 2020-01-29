@@ -36,7 +36,7 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('front.html', prediction_text='your GAD score is $ {}'.format(output))
+    return render_template('index.html', prediction_text='your GAD score is $ {}'.format(output))
 
 
 @app.route('/predict_api',methods=['POST'])
