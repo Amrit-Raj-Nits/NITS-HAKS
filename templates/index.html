@@ -1,7 +1,19 @@
 <html>
 	<form action="/predict" method="POST">
-		<input type="text" name="x">
-		<input type="submit" name="submit">
+		Net Worth Of NGO(in lakhs):<br><input type="text" name="x0"><br>
+		Number of followers:<br><input type="text" name="x1"><br>
+		Victem Reach(In thousand):<br><input type="text" name="x2"><br>
+		Media Rating(Out of 10):<br><input type="text" name="x3"><br>
+		Number Of Staff:<br><input type="text" name="x4"><br>
+		International Awards(Number):<br><input type="text" name="x5"><br>
+		National Awards(Number):<br><input type="text" name="x6"><br>
+		Professional Certificates(Number):<br><input type="text" name="x7"><br>
+		Do you have a website(1 if yes, 0 if no):<br><input type="text" name="x8"><br>
+		How many states do you serve:<br><input type="text" name="x9"><br>
+		Number of fields in which you serve:<br><input type="text" name="x10"><br>
+		For how long the NGO has been in existance(in rounded years):<br><input type="text" name="x11"><br>
+		Number of Countries you serve:<br><input type="text" name="x12"><br>
+		How many annual reports have you filed(Number):<br><input type="submit" name="submit">
 	</form>
 	
 	{{ prediction_text}}
