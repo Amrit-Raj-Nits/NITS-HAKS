@@ -14,29 +14,29 @@ model = pickle.load(open('simple_linear_regression.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('test_home.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = request.form.to_dict()
-    num = [int(int_features.get('x'))]
+    int_features =[str(x) for x in request.form.values()]  # request.form.to_dict()
+    num = [int_features] #.get('x') int()
     #int_features = {1:2}
     #return int_features
     
     
-    final_features = [np.array(num)]
+    final_features = np.array(num)
     
     
-    #return render_template('test.html', prediction_text=final_features)
+    #return render_template('index.html', prediction_text=final_features[:, :-1].astype(int))
         
-    prediction = model.predict(final_features)
+    prediction = model.predict(final_features[:, :-1].astype(float))
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='your GAD score is $ {}'.format(output))
+    return render_template('index.html', prediction_text='Your expected grant in thousand:   {}'.format(output))
 
 
 @app.route('/predict_api',methods=['POST'])
